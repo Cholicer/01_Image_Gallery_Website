@@ -1,0 +1,142 @@
+// @import "normalize";
+
+@import url('https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   box-sizing: border-box;
+}
+
+$color-body-bg: #d8dae2;
+$color-white: #fff;
+$color-light: #eff0f1;
+$color-dark: #12122e;
+$transition: all 300ms ease;
+
+body {
+   background: $color-body-bg;
+   display: grid;
+   place-items: center;
+   height: 100vh;
+   width: 100vw;
+   font-family: 'Krub', sans-serif;
+   font-size: 0.9rem;
+   color: $color-dark;
+}
+
+img {
+   display: block;
+   width: 100%;
+   object-fit: cover;
+   transition: $transition;
+}
+
+.main {
+   background: $color-light;
+   width: 70%;
+   padding: 3rem;
+   border-radius: 1rem;
+}
+
+.article {
+
+   &__categories {
+      display: flex;
+      gap: 0.7rem;
+      margin: 1rem 0 2rem;
+      flex-wrap: wrap;        // * so its not overflow
+   }
+
+   &__category {
+      background: $color-white;
+      padding: 0.4rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      transition: $transition;
+      &:hover {
+         background: $color-dark;
+         color: $color-white;
+         cursor: pointer;
+      }
+   }
+}
+
+.galleries {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   gap: 3rem;
+}
+
+.gallery {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   background: $color-white;
+   padding: 1rem;
+   border-radius: 1rem;
+   border: 4px solid transparent;
+   transition: $transition;
+   &:hover {
+      border-color: $color-white;
+      background: transparent;
+      & img {
+         filter: saturate(0);
+      }
+   }
+
+   &__images-thumb {
+      & img {
+         aspect-ratio: 3/2;
+         border-radius: 0.7rem;
+      }
+   }
+
+   &__images-more {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+      & img {
+         aspect-ratio: 5/4;
+         border-radius: 0.7rem;
+      }
+   }
+
+   &__info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & p {
+         font-weight: 600;
+      }
+   }
+}
+
+.uil {}
+
+.uil-scenery {}
+
+@media screen and (max-width: 700px) {
+   body {
+      display: block;
+      padding: 2rem 1rem 4rem;
+      height: auto;
+   }
+
+   main {
+      width: 100%;
+      padding: 0;
+      background: transparent;
+   }
+
+   .article__category {
+      padding: 0.7rem 1rem;
+      display: inline-block;
+   }
+
+   .galleries {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+   }
+}
